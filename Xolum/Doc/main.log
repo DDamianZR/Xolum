@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.25)  25 MAR 2026 22:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.25)  25 MAR 2026 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex
-(c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex
+**c:/Users/damia/Documents/Proyectos/Xolum/Xolum/Doc/main.tex
+(c:/Users/damia/Documents/Proyectos/Xolum/Xolum/Doc/main.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
 (C:\Program Files\MiKTeX\tex/latex/base\article.cls
@@ -683,72 +683,6 @@ File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 82.
 (pdftex.def)             Requested size: 142.26378pt x 131.94127pt.
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:111: Misplaced alignment tab character &.
-l.111 \textbf{Empresa} &
-                         XOLUM \\[0.4cm]
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:112: Misplaced alignment tab character &.
-l.112 \textbf{Integrantes:} &
-                              \\[0.2cm]
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:113: Misplaced alignment tab character &.
-l.113 &
-        Pérez Flores Isai Aram — Inteligencia Artificial/ESCOM - IPN \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:114: Misplaced alignment tab character &.
-<recently read> &
-                 
-l.114 &
-        Rueda Manzano Jennifer — Inteligencia Artificial/ESCOM - IPN \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:115: Misplaced alignment tab character &.
-<recently read> &
-                 
-l.115 &
-        Canales Zendreros Diego Damián — Inteligencia Artificial/ESCOM - ...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:116: Misplaced alignment tab character &.
-<recently read> &
-                 
-l.116 &
-        Soriano Rosales Irvin Jair — Ciencia de Datos/ESCOM - IPN \\
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
 [1
 
 {C:/Users/damia/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./logo.png>]
@@ -789,7 +723,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX Warning: Reference `fig:flujo' on page 4 undefined on input line 207.
 
 
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:211: Package svg Error: File `susvi_decision_logic_pipeline.svg' is missing.
+c:/Users/damia/Documents/Proyectos/Xolum/Xolum/Doc/main.tex:211: Package svg Error: File `susvi_decision_logic_pipeline.svg' is missing.
 
 See the svg package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -947,7 +881,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15]
 
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:596: Package svg Error: File `susvi_architecture_stack.svg' is missing.
+c:/Users/damia/Documents/Proyectos/Xolum/Xolum/Doc/main.tex:596: Package svg Error: File `susvi_architecture_stack.svg' is missing.
 
 See the svg package documentation for explanation.
 Type  H <return>  for immediate help.
@@ -1003,7 +937,7 @@ Overfull \hbox (17.11015pt too wide) in paragraph at lines 690--691
 []\T1/cmr/m/n/12 Gehl Ar-chi-tects. Con-sul-to-r�a en di-se-�o ur-bano y es-pa-cio p�-bli-co. [][]$\T1/cmtt/m/n/12 https : / / gehlpeople .
  []
 
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:695: Undefined control sequence.
+c:/Users/damia/Documents/Proyectos/Xolum/Xolum/Doc/main.tex:695: Undefined control sequence.
 \__hook enddocument ...o\endcsname }}\ifTRP@rerun 
                                                   \PackageWarningNoLine {tra...
 l.695 \end{document}
@@ -1017,7 +951,7 @@ and I'll forget about whatever was undefined.
 
 Package transparent Warning: Rerun to get transparencies right.
 
-c:/Users/damia/Documents/Proyectos/Xolum/Xolum/main.tex:695: Extra \fi.
+c:/Users/damia/Documents/Proyectos/Xolum/Xolum/Doc/main.tex:695: Extra \fi.
 \__hook enddocument ...t transparencies right}\fi 
                                                   \__hook_toplevel enddocume...
 l.695 \end{document}
@@ -1057,16 +991,16 @@ Package rerunfilecheck Info: Checksums for `main.out':
  ) 
 Here is how much of TeX's memory you used:
  17436 strings out of 474486
- 295562 string characters out of 5753569
+ 295590 string characters out of 5753569
  1938542 words of memory out of 5000000
  39317 multiletter control sequences out of 15000+600000
  572443 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,13n,93p,1180b,670s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 94i,13n,93p,1184b,670s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1200.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecti1200.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0800.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk> <C:\Users\damia\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (20 pages, 385557 bytes).
+Output written on main.pdf (20 pages, 386064 bytes).
 PDF statistics:
- 747 PDF objects out of 1000 (max. 8388607)
+ 748 PDF objects out of 1000 (max. 8388607)
  113 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

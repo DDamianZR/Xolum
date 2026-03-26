@@ -1,6 +1,6 @@
-PWD c:\Users\damia\Documents\Proyectos\Xolum\Xolum
+PWD c:\Users\damia\Documents\Proyectos\Xolum\Xolum\Doc
 INPUT C:\Users\damia\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\damia\Documents\Proyectos\Xolum\Xolum\main.tex
+INPUT c:\Users\damia\Documents\Proyectos\Xolum\Xolum\Doc\main.tex
 OUTPUT main.log
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Program Files\MiKTeX\tex\latex\base\article.cls
