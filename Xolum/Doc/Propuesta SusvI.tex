@@ -1,0 +1,873 @@
+\documentclass[12pt,a4paper]{article}
+
+% ===================== PAQUETES =====================
+\usepackage[utf8]{inputenc}
+% \usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{mdframed}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+% ===================== GEOMETRÍA =====================
+\geometry{
+  top=2.5cm, bottom=2.5cm,
+  left=2.5cm, right=2.5cm
+}
+\setstretch{1.15}
+
+% ===================== COLORES =====================
+\definecolor{azuloscuro}{HTML}{1B3A5C}
+\definecolor{acento}{HTML}{2563EB}
+\definecolor{fondoazul}{HTML}{EFF6FF}
+\definecolor{fondogris}{HTML}{F8FAFC}
+\definecolor{gristexto}{HTML}{64748B}
+\definecolor{verde}{HTML}{16A34A}
+\definecolor{verdeclaro}{HTML}{F0FDF4}
+\definecolor{naranja}{HTML}{D97706}
+\definecolor{borde}{HTML}{CBD5E1}
+\definecolor{bordecita}{HTML}{B0C4D8}
+\definecolor{fondocita}{HTML}{F0F4F8}
+\definecolor{rojosuave}{HTML}{FEF2F2}
+\definecolor{rojo}{HTML}{DC2626}
+
+% ===================== HYPERREF =====================
+\hypersetup{
+  colorlinks=true,
+  linkcolor=azuloscuro,
+  urlcolor=acento,
+  citecolor=azuloscuro,
+  pdftitle={SUSVI — Documento de Ideación Fase 1},
+  pdfauthor={XOLUM}
+}
+
+% ===================== TÍTULOS =====================
+\titleformat{\section}
+  {\Large\bfseries\color{azuloscuro}}{}{0em}{}
+  [\vspace{2pt}{\color{acento}\hrule height 1.5pt}\vspace{4pt}]
+
+\titleformat{\subsection}
+  {\large\bfseries\color{azuloscuro}}{}{0em}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{acento}}{}{0em}{}
+
+\titlespacing*{\section}{0pt}{24pt}{10pt}
+\titlespacing*{\subsection}{0pt}{18pt}{8pt}
+\titlespacing*{\subsubsection}{0pt}{12pt}{6pt}
+
+% ===================== ENCABEZADO Y PIE =====================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{gristexto} SUSVI — Senderos Urbanos Seguros, Verdes e Inteligentes}
+\fancyhead[R]{\small\color{gristexto} XOLUM}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ===================== CAJAS PERSONALIZADAS =====================
+
+% Caja azul — resumen / MVP
+\tcbset{
+  cajaazul/.style={
+    enhanced,
+    breakable,
+    colback=fondoazul,
+    colframe=acento,
+    boxrule=0.5pt,
+    left=10pt, right=10pt,
+    top=10pt, bottom=10pt,
+    arc=4pt,
+    fonttitle=\bfseries\color{azuloscuro},
+    before skip=12pt,
+    after skip=12pt
+  }
+}
+
+% Caja verde — demo / datos mock
+\tcbset{
+  cajaverde/.style={
+    enhanced,
+    breakable,
+    colback=verdeclaro,
+    colframe=verde,
+    boxrule=0.5pt,
+    left=10pt, right=10pt,
+    top=10pt, bottom=10pt,
+    arc=4pt,
+    fonttitle=\bfseries\color{verde},
+    before skip=12pt,
+    after skip=12pt
+  }
+}
+
+% Caja gris — narrativa / ejemplo
+\tcbset{
+  cajagris/.style={
+    enhanced,
+    breakable,
+    colback=fondogris,
+    colframe=borde,
+    boxrule=0.5pt,
+    left=10pt, right=10pt,
+    top=10pt, bottom=10pt,
+    arc=4pt,
+    before skip=12pt,
+    after skip=12pt
+  }
+}
+
+% Caja destacada (tagline)
+\newmdenv[
+  backgroundcolor=fondoazul,
+  linecolor=acento,
+  linewidth=2pt,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftline=true,
+  innerleftmargin=14pt,
+  innerrightmargin=12pt,
+  innertopmargin=10pt,
+  innerbottommargin=10pt,
+  skipabove=14pt,
+  skipbelow=14pt
+]{tagline}
+
+% ===================== COMANDOS ÚTILES =====================
+\newcommand{\capamvp}[2]{%
+  \noindent\textbf{\color{azuloscuro}#1}\quad #2\par\vspace{4pt}%
+}
+
+\newcommand{\capafutura}[2]{%
+  \noindent\textbf{\color{gristexto}#1}\quad\textit{\color{gristexto}#2}\par\vspace{4pt}%
+}
+
+% Colores para tablas
+\newcommand{\theadrow}{\rowcolor{azuloscuro}}
+\newcommand{\taltrow}{\rowcolor{fondoazul}}
+
+% ===================== DOCUMENTO =====================
+\begin{document}
+
+% ==================== PORTADA ====================
+% ==================== PORTADA ====================
+\begin{titlepage}
+\centering
+
+\vspace*{1cm}
+
+% --- Espacio para logo de la empresa ---
+\centering
+\includegraphics[width=5cm]{logo.png}
+
+\vspace{1cm}
+
+% --- Nombre del proyecto ---
+{\Huge\bfseries\color{titulo} S\,U\,S\,V\,I}
+
+\vspace{0.3cm}
+
+{\Large Senderos Urbanos Seguros, Verdes e Inteligentes}
+
+\vspace{0.3cm}
+
+{\large Sistema de Planificación Urbana Integral con IA Generativa}
+
+\vspace{1.5cm}
+
+% --- Información del track ---
+\begin{tabular}{r l}
+\textbf{Track:} & Ciudades Resilientes: IA Generativa para Diseñar \\
+                & Ciudades más Inteligentes y Sostenibles \\[0.3cm]
+\textbf{Evento:} & Talent Land 2026 \\[0.3cm]
+\textbf{Fase:} & 1 \\
+\end{tabular}
+
+\vspace{1.5cm}
+
+% --- Empresa e integrantes ---
+\begin{center}
+\textbf{Empresa} \& XOLUM \\[0.4cm]
+\textbf{Integrantes:} \& \\[0.2cm]
+\& Pérez Flores Isai Aram — Inteligencia Artificial/ESCOM - IPN \\
+\& Rueda Manzano Jennifer — Inteligencia Artificial/ESCOM - IPN \\
+\& Canales Zendreros Diego Damián — Inteligencia Artificial/ESCOM - IPN \\
+\& Soriano Rosales Irvin Jair — Ciencia de Datos/ESCOM - IPN \\
+\end{center}
+
+\vspace{1.5cm}
+
+% --- Fecha ---
+{\large Marzo 2026}
+
+\vfill
+
+{\small\color{gray} Documento de Ideación — Fase 1}
+
+\end{titlepage}
+
+% ==================== ÍNDICE ====================
+\tableofcontents
+\newpage
+
+% ==================== 0. RESUMEN EJECUTIVO ====================
+\section{Resumen Ejecutivo}
+
+\begin{tcolorbox}[cajaazul]
+Las ciudades mexicanas enfrentan una crisis silenciosa en sus espacios peatonales: senderos inseguros, iluminación deficiente, ausencia de áreas verdes y vigilancia fragmentada conviven porque nunca se planifican juntos. \textbf{SUSVI resuelve exactamente eso.}
+
+\medskip
+\textbf{\color{acento}MVP demostrable en 48 horas:} Ingesta de datos abiertos geolocalizados + diagnóstico multidimensional con IBM Watsonx AI + generación de senderos óptimos con cálculo luminotécnico NOM-013-ENER completo + panel interactivo de visualización. Todo sobre \textbf{datos simulados (mock)} para garantizar estabilidad en demo.
+
+\medskip
+\textbf{\color{acento}Impacto directo:} Una autoridad municipal puede ingresar las coordenadas de cualquier colonia y recibir en minutos un plan de intervención con métricas, costos estimados y escenarios comparables — algo que hoy cuesta entre \$500{,}000 y \$2{,}000{,}000 MXN y tarda de 3 a 6 meses.
+\end{tcolorbox}
+
+% ==================== 1. INFORMACIÓN GENERAL ====================
+\section{Información General del Proyecto}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries\color{azuloscuro}}r X}
+\toprule
+Nombre del proyecto: & SUSVI — Senderos Urbanos Seguros, Verdes e Inteligentes \\
+\midrule
+Track: & Ciudades Resilientes: IA Generativa para Diseñar Ciudades más Inteligentes y Sostenibles \\
+\midrule
+Equipo: & XOLUM \\
+\midrule
+Tecnología base: & IBM Watsonx AI, IBM Cloud Functions, Python, React.js, Leaflet.js \\
+\midrule
+ODS principal: & ODS 11 — Ciudades y comunidades sostenibles \\
+\midrule
+\textbf{Capas del MVP:} & \textbf{1) Senderos peatonales seguros \quad 2) Iluminación pública inteligente} \\
+\midrule
+Capas futuras: & 3) Áreas verdes estratégicas \quad 4) Videovigilancia optimizada \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+% ==================== 2. PROBLEMÁTICA ====================
+\newpage
+\section{Descripción de la Problemática}
+
+\subsection{Contexto general}
+
+Los espacios peatonales en las ciudades mexicanas sufren un deterioro multidimensional que afecta a millones de personas. Inseguridad, iluminación deficiente, ausencia de áreas verdes y vigilancia fragmentada no son problemas aislados: se retroalimentan en un ciclo que expone a los grupos más vulnerables —mujeres, niños, adultos mayores y personas con discapacidad— a riesgos evitables.
+
+\subsection{El problema en cifras}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries}l l X l}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Dimensión} & \color{white}\textbf{Indicador} & \color{white}\textbf{Dato clave} & \color{white}\textbf{Fuente} \\
+\midrule
+Inseguridad & Percepción & 67.4\% de la población siente insegura su ciudad & ENVIPE 2024 \\
+\rowcolor{fondoazul}
+Género & Violencia pública & 6 de cada 10 mujeres han sufrido violencia en espacios públicos & ONU Mujeres \\
+Iluminación & Déficit & 30–50\% de déficit en alumbrado público en múltiples municipios & NOM-013-ENER \\
+\rowcolor{fondoazul}
+Áreas verdes & m²/hab & Muchas zonas tienen menos de 4~m²/hab (OMS recomienda $\geq$9~m²) & OMS \\
+Videovigilancia & Instalación & Cámaras ubicadas post-incidente, sin criterio técnico preventivo & Diagnóstico C4/C5 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{El problema de fondo: planificación fragmentada}
+
+Las cuatro dimensiones —senderos, vegetación, iluminación y vigilancia— se planifican de forma aislada por dependencias distintas. El resultado: árboles que bloquean cámaras, luminarias insuficientes para que los sensores funcionen, y senderos diseñados sin considerar el riesgo real.
+
+\begin{tagline}
+\textbf{No existe en México una herramienta que permita optimizar estas cuatro dimensiones de forma simultánea}, resolviendo los conflictos entre ellas y generando un plan de intervención coherente, integral y ejecutable.
+\end{tagline}
+
+
+% ==================== 3. SOLUCIÓN ====================
+\newpage
+\section{Descripción de la Solución Propuesta}
+
+\subsection{¿Qué es SUSVI?}
+
+SUSVI es una plataforma de IA generativa que, a partir de datos urbanos abiertos, genera planes de intervención integrales para el diseño de senderos peatonales seguros. Recibe como entrada un área geográfica y produce automáticamente propuestas que cubren cuatro dimensiones urbanas interconectadas.
+
+\subsection{MVP demostrable en 48 horas}
+
+El prototipo entregable al término del hackathon se concentra en las \textbf{dos capas de mayor impacto y mayor viabilidad técnica en 48 horas}:
+
+\begin{tcolorbox}[cajaverde, title=Capas del MVP — Completamente Funcionales en Demo]
+\capamvp{Capa 1 — Senderos peatonales seguros:}{Trazado automático de rutas óptimas sobre la red vial real (OpenStreetMap + OSMnx/NetworkX), conectando puntos clave: escuelas, clínicas, mercados y paradas de transporte. Ponderación multi-criterio: distancia, nivel de riesgo delictivo y ancho de banqueta.}
+
+\smallskip
+\capamvp{Capa 2 — Iluminación pública inteligente:}{Cálculo luminotécnico completo según NOM-013-ENER-2013: cantidad de luminarias, tipo (LED estándar / LED solar), potencia (W), flujo luminoso (lm), altura de montaje, espaciamiento, consumo anual (kWh) y costo estimado. Todo calculado con la fórmula de la norma mexicana vigente:
+\[
+d = \frac{\Phi \times CU \times FM}{E_{min} \times A}
+\]
+donde $d$ = distancia entre luminarias, $\Phi$ = flujo luminoso (lm), $CU$ = coeficiente de utilización, $FM$ = factor de mantenimiento, $E_{min}$ = iluminancia mínima requerida (lux), $A$ = ancho del sendero (m).}
+\end{tcolorbox}
+
+\subsection{Escalabilidad post-hackathon}
+
+Las siguientes capas están diseñadas en la arquitectura y se activarán como extensiones tras la fase de hackathon:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Capa futura} & \color{white}\textbf{Descripción} \\
+\midrule
+Capa 3 — Áreas verdes & Ubicación estratégica de arbolado y jardines lineales en espacios subutilizados. Verificación de que la vegetación no obstruya cámaras futuras. \\
+\rowcolor{fondogris}
+Capa 4 — Videovigilancia & Ubicación óptima de cámaras C4/C5 con modelado geométrico del campo de visión (Shapely), maximización de cobertura y algoritmo tipo \textit{set cover}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Estabilidad en demo: arquitectura con datos simulados}
+
+Para garantizar una demo robusta e independiente de conectividad externa durante el hackathon:
+
+\begin{tcolorbox}[cajaverde, title=Estrategia de Datos para el Hackathon]
+\capamvp{Dataset mock precargado:}{Una zona urbana representativa de 20 manzanas con todos los datos necesarios (puntos de interés, red vial, incidencia delictiva, luminarias existentes) se incluye como \textit{fixture} estático en el repositorio.}
+
+\smallskip
+\capamvp{Sin dependencias en tiempo real:}{El sistema \textbf{NO} realiza llamadas a APIs externas durante la demo (INEGI, SNSP, OSM). Todas las fuentes están pre-procesadas y disponibles localmente.}
+
+\smallskip
+\capamvp{Modo producción disponible:}{El pipeline de ingesta real (Overpass API, DENUE, SNSP) está implementado pero activable mediante \textit{flag} de configuración, permitiendo escalar a datos reales sin modificar el código del MVP.}
+\end{tcolorbox}
+
+\subsection{Flujo de operación}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{c l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Paso} & \color{white}\textbf{Módulo} & \color{white}\textbf{Descripción} \\
+\midrule
+1 & Ingesta de datos & Carga del dataset mock (demo) o conexión a fuentes abiertas (producción): DENUE, SNSP, OSM, GTFS \\
+\rowcolor{fondoazul}
+2 & Diagnóstico con Watsonx & Agente Granite 13B analiza la zona y genera índice de riesgo peatonal, déficit lumínico vs. NOM-013-ENER \\
+3 & Generación de propuestas & Algoritmos de grafos (NetworkX/OSMnx) para senderos + fórmula luminotécnica para iluminación \\
+\rowcolor{fondoazul}
+4 & Resolución de conflictos & IA generativa evalúa trade-offs entre capas (MVP: sendero vs. riesgo; futuro: árbol vs. cámara) \\
+5 & Visualización y exportación & Dashboard interactivo (Leaflet.js), panel de métricas, 3 escenarios comparables y exportación PDF \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Outputs del MVP}
+
+El prototipo entrega los siguientes productos concretos:
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=4pt]
+  \item \textbf{Plano interactivo} con las 2 capas del MVP superpuestas (senderos + luminarias), con activación/desactivación por capa.
+  \item \textbf{Panel de métricas:} cobertura lumínica (\%), número de luminarias, consumo energético anual (kWh) y costo estimado de instalación (MXN).
+  \item \textbf{3 escenarios generados por Watsonx:} optimizado por costo, optimizado por seguridad y escenario equilibrado.
+  \item \textbf{Reporte exportable en PDF} con el plan de intervención completo y fundamento normativo.
+\end{itemize}
+
+\subsection{Ejemplo ilustrativo: SUSVI aplicado a una zona tipo}
+
+Para ilustrar el funcionamiento del MVP, consideremos una zona hipotética representativa de las periferias mexicanas: 20 manzanas, 8{,}500 habitantes, una escuela primaria, una clínica de salud, un mercado, dos paradas de transporte público, incidencia delictiva superior a la media municipal y cobertura de alumbrado al 55\%.
+
+\begin{tcolorbox}[cajagris]
+\textbf{Diagnóstico generado por SUSVI:}
+\begin{itemize}[leftmargin=0.5cm, itemsep=2pt]
+  \item Iluminación: 47 luminarias, 14 fuera de servicio. Nivel promedio: 3.2 lux (mínimo NOM-013-ENER: 7.5 lux).
+  \item Senderos formales: ninguno. Los peatones usan 4 rutas informales sin criterio de seguridad.
+  \item Área verde: 2.8~m\textsuperscript{2}/hab (déficit del 69\% vs. estándar OMS). \textit{[Capa futura]}
+\end{itemize}
+
+\medskip
+\textbf{Intervención propuesta — escenario equilibrado (MVP):}
+\begin{itemize}[leftmargin=0.5cm, itemsep=2pt]
+  \item \textbf{Senderos:} 3 rutas peatonales (1.8 km totales) conectando los 5 puntos clave, evitando los 2 tramos de mayor incidencia.
+  \item \textbf{Iluminación:} 38 nuevas luminarias LED de 60W (7{,}800 lm), altura 5~m, espaciamiento 25~m (18~m en tramos de riesgo alto). 6 luminarias solares en tramos sin red eléctrica. Consumo: 19{,}710 kWh/año. Costo: \$684{,}000 MXN.
+\end{itemize}
+
+\medskip
+\textbf{Impacto estimado del MVP:} 8{,}500 habitantes beneficiados. Cobertura lumínica del sendero: 96\% (antes: 55\%). Costo total: \$684{,}000 MXN $\approx$ \$80 MXN por habitante.
+\end{tcolorbox}
+
+
+% ==================== 4. PARTICIPACIÓN CIUDADANA ====================
+\newpage
+\section{Participación Ciudadana}
+
+SUSVI reconoce que los datos abiertos gubernamentales no capturan la totalidad del problema: los peatones conocen de primera mano los tramos peligrosos, las luminarias que fallan y las rutas que evitan por seguridad. Por eso, la plataforma está diseñada con un módulo de retroalimentación ciudadana como \textbf{extensión de corto plazo}.
+
+\subsection{Diseño del módulo ciudadano (extensión post-MVP)}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Canal} & \color{white}\textbf{Funcionalidad} \\
+\midrule
+Reporte in-app & El usuario selecciona un punto en el mapa y clasifica el problema: luminaria apagada, tramo inseguro, vandalismo, acoso. \\
+\rowcolor{fondoazul}
+Integración con 911 / Mi Policía & Importación de reportes ciudadanos geolocalizados para actualizar el mapa de riesgo en tiempo cuasi-real. \\
+Heatmap de percepción & Los reportes ciudadanos generan un segundo índice de riesgo (subjetivo) que pondera junto al índice estadístico del SNSP. \\
+\rowcolor{fondoazul}
+Validación participativa & Vecinos y autoridades pueden marcar propuestas de senderos como ``aprobadas'' o sugerir ajustes antes de la implementación. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+En el MVP del hackathon, este módulo se presenta como una \textbf{interfaz de captura funcional con datos simulados} —demostrando la arquitectura— sin depender de usuarios reales ni de integración con sistemas gubernamentales en producción.
+
+
+% ==================== 5. ALTO IMPACTO ====================
+\newpage
+\section{Alto Impacto}
+
+\subsection{Relación con el track}
+
+SUSVI se alinea directamente con tres de los cinco ejes del track de \textit{Ciudades Resilientes}:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Eje del track} & \color{white}\textbf{Contribución de SUSVI} \\
+\midrule
+Planificación urbana optimizada & Genera modelos de diseño que integran infraestructura peatonal, iluminación, vegetación y vigilancia de forma simultánea, no fragmentada. \\
+\rowcolor{fondoazul}
+Movilidad inteligente & Los senderos seguros son infraestructura de movilidad no motorizada que reduce la dependencia del automóvil y mejora la conectividad peatonal. \\
+Uso eficiente de recursos & La optimización luminotécnica NOM-013-ENER reduce el consumo energético del alumbrado público. La ubicación estratégica maximiza cobertura con menor inversión. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Población objetivo}
+
+SUSVI identifica y prioriza automáticamente zonas urbanas que cumplan los siguientes criterios:
+
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=1.5cm, itemsep=4pt]
+  \item \textbf{Alta incidencia delictiva} según datos del Secretariado Ejecutivo del SNSP.
+  \item \textbf{Ausencia de senderos formales} que conecten puntos clave de servicio.
+  \item \textbf{Déficit de iluminación pública} (cobertura $<$ 70\% o niveles por debajo de la NOM-013-ENER).
+  \item \textbf{Déficit de áreas verdes} ($<$ 9~m\textsuperscript{2}/hab, estándar OMS) y presencia de islas de calor.
+  \item \textbf{Baja densidad de cámaras C4/C5} con puntos ciegos significativos.
+\end{enumerate}
+
+\medskip
+Los beneficiarios directos incluyen:
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=3pt]
+  \item Peatones que transitan diariamente entre hogar, servicios y transporte público.
+  \item Estudiantes de todos los niveles educativos.
+  \item \textbf{Mujeres}, quienes enfrentan niveles desproporcionados de inseguridad en el espacio público (6 de cada 10 según ONU Mujeres México).
+  \item Adultos mayores y personas con discapacidad que dependen de la infraestructura peatonal.
+  \item Trabajadores que requieren senderos seguros de última milla hacia el transporte público.
+\end{itemize}
+
+\subsection{Alineación con los ODS}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l l X l}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{ODS} & \color{white}\textbf{Nombre} & \color{white}\textbf{Contribución de SUSVI} & \color{white}\textbf{Capa} \\
+\midrule
+ODS 11 & Ciudades sostenibles & Planificación integral de espacios peatonales seguros y verdes & Todas \\
+\rowcolor{fondoazul}
+ODS 9 & Innovación e infraestructura & IA generativa como herramienta de planificación urbana & Todas \\
+ODS 5 & Igualdad de género & Senderos diseñados con enfoque de seguridad para mujeres & Capas 1 y 4 \\
+\rowcolor{fondoazul}
+ODS 7 & Energía limpia & Luminarias LED/solares con optimización energética NOM-013-ENER & Capa 2 \\
+ODS 13 & Acción por el clima & Corredores verdes para mitigación de islas de calor urbano & Capa 3 \\
+\rowcolor{fondoazul}
+ODS 16 & Paz y justicia & Videovigilancia preventiva para reducción del delito & Capa 4 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+% ==================== 6. INNOVACIÓN Y CREATIVIDAD ====================
+\newpage
+\section{Innovación y Creatividad}
+
+\subsection{¿Qué hace a SUSVI novedoso?}
+
+La novedad de SUSVI no radica en resolver cada problema por separado —existen herramientas de cálculo luminotécnico, software de ubicación de cámaras y estudios de áreas verdes—. La innovación está en la \textbf{integración simultánea de las cuatro dimensiones mediante IA generativa}, resolviendo los conflictos entre ellas de forma automatizada.
+
+Actualmente, no existe en el mercado mexicano una herramienta que:
+
+\begin{enumerate}[leftmargin=1.5cm, itemsep=3pt]
+  \item Reciba un área geográfica y datos abiertos como entrada.
+  \item Genere automáticamente un plan integral que combine senderos, áreas verdes, iluminación y vigilancia.
+  \item Resuelva los conflictos entre capas (árbol que bloquea cámara, luminaria que deslumbra sensor).
+  \item Produzca múltiples escenarios con \textit{trade-offs} diferentes para la toma de decisiones.
+  \item Entregue un plano listo para implementación con métricas de impacto y costos estimados.
+\end{enumerate}
+
+\subsection{¿Cómo se hace hoy y por qué no funciona?}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l l X X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Problema} & \color{white}\textbf{Método actual} & \color{white}\textbf{Limitación crítica} & \color{white}\textbf{SUSVI} \\
+\midrule
+Cálculo luminotécnico & DIALux / Relux (manual) & Aislado, requiere especialista, no considera senderos ni vigilancia & Automatizado en MVP \\
+\rowcolor{fondoazul}
+Ubicación de cámaras & Decisión manual de Seguridad & Criterio reactivo post-incidente, sin optimización geométrica & Algoritmo Shapely (capa 4) \\
+Áreas verdes & QGIS / ArcGIS (manual) & El urbanista interpreta y diseña manualmente, sin propuestas automáticas & Generación automática (capa 3) \\
+\rowcolor{fondoazul}
+Senderos peatonales & Consultorías (\$500K–\$2M MXN) & 3–6 meses de entrega, inaccesible para municipios pequeños & Minutos, costo \$0 \\
+Integración de capas & No existe & Conflictos se descubren post-instalación (costo x2) & Motor de resolución Watsonx \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Diferenciadores frente a soluciones existentes}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{X c c}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Característica} & \color{white}\textbf{Método actual} & \color{white}\textbf{SUSVI} \\
+\midrule
+Planificación integral (4 capas simultáneas) & No & Sí (MVP: 2; escalable: 4) \\
+\rowcolor{fondoazul}
+Resolución automática de conflictos entre capas & No & Sí — motor Watsonx \\
+Generación de múltiples escenarios comparables & Limitada (1 propuesta) & Sí — mínimo 3 escenarios \\
+\rowcolor{fondoazul}
+Uso de datos abiertos mexicanos & Parcial / manual & Automatizado (mock en demo) \\
+Cálculo luminotécnico NOM-013-ENER & Manual (DIALux/Relux) & Automatizado e integrado \\
+\rowcolor{fondoazul}
+Plano exportable con métricas & No estandarizado & Sí — PDF + dashboard \\
+Costo para el municipio & \$500K–\$2M MXN & \$0 — plataforma abierta \\
+\rowcolor{fondoazul}
+Tiempo de entrega del plan & 3–6 meses & Minutos \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Uso innovador de IA generativa}
+
+SUSVI utiliza IBM Watsonx no como un simple chatbot, sino como un \textbf{motor de razonamiento urbano}. La IA generativa aporta capacidades irreplicables con código determinista:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{>{\bfseries}l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Capacidad de Watsonx} & \color{white}\textbf{Aplicación en SUSVI} \\
+\midrule
+Razonamiento sobre conflictos cualitativos & Evalúa trade-offs entre capas sin fórmula única: ¿reubicar la cámara o podar el árbol? \\
+\rowcolor{fondoazul}
+Generación de escenarios diversos & Produce 3 propuestas con criterios distintos (costo, seguridad, equilibrado). \\
+Síntesis de resultados heterogéneos & Convierte datos geoespaciales, cálculos de ingeniería y restricciones normativas en reporte comprensible para no técnicos. \\
+\rowcolor{fondoazul}
+Adaptación al contexto local & Considera restricciones no codificadas: presupuesto municipal, prioridades políticas, eventos recurrentes. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Es importante distinguir el rol de la IA generativa del de los algoritmos deterministas. Los cálculos luminotécnicos, la optimización geométrica y el trazado de grafos se ejecutan con precisión matemática. Watsonx aporta el \textbf{razonamiento contextual y la síntesis narrativa} que convierte esos números en decisiones ejecutables.
+
+
+% ==================== 7. ESCALABILIDAD ====================
+\newpage
+\section{Escalabilidad}
+
+\subsection{Escalabilidad geográfica}
+
+La plataforma no depende de datos propietarios de ninguna ciudad específica. Al alimentarse de fuentes estandarizadas (INEGI, OpenStreetMap, GTFS), puede aplicarse a cualquier zona urbana de México con mínima configuración:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l l X l}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Horizonte} & \color{white}\textbf{Plazo} & \color{white}\textbf{Alcance} & \color{white}\textbf{Requerimiento} \\
+\midrule
+Validación & 0–6 meses & Zonas piloto con retroalimentación de autoridades locales & Cambiar coordenadas \\
+\rowcolor{fondoazul}
+Expansión local & 6–18 meses & Múltiples colonias o alcaldías en la misma ciudad & Activar pipeline real \\
+Nacional & 18–36 meses & Cualquier municipio de México con cobertura INEGI/SNSP & Config. parámetros \\
+\rowcolor{fondoazul}
+Latinoamérica & Futuro & Colombia (DANE), Brasil (IBGE), Argentina (INDEC) + OSM global & Mapeo de fuentes \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Escalabilidad funcional}
+
+La arquitectura modular permite agregar nuevas capas sin rediseñar el sistema. Extensiones previstas:
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=3pt]
+  \item Accesibilidad universal: rampas, señalización táctil, semáforos sonoros.
+  \item Drenaje pluvial: prevención de inundaciones en senderos.
+  \item Mobiliario urbano: bancas, bebederos, señalización.
+  \item IoT: integración con sensores en tiempo real para monitoreo post-instalación de luminarias y cámaras.
+\end{itemize}
+
+\subsection{Escalabilidad técnica}
+
+La arquitectura \textit{serverless} sobre IBM Cloud Functions permite escalar automáticamente según la demanda — de una zona de unas pocas manzanas a una ciudad completa sin cambios en la infraestructura ni provisión manual de servidores.
+
+
+% ==================== 8. VIABILIDAD ====================
+\newpage
+\section{Viabilidad}
+
+\subsection{Viabilidad tecnológica}
+
+Todas las tecnologías propuestas están disponibles, son maduras y tienen versiones gratuitas para el prototipo:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l l l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Componente} & \color{white}\textbf{Tecnología} & \color{white}\textbf{Costo} & \color{white}\textbf{Justificación} \\
+\midrule
+IA generativa & IBM Watsonx AI (Granite 13B) & Tier gratuito & Requerido por el track; foundation models disponibles \\
+\rowcolor{fondoazul}
+Procesamiento geodatos & Python, GeoPandas, Shapely & Gratuito & Open source, amplia comunidad \\
+Datos urbanos & INEGI, OSM, SNSP & Gratuito & Datos abiertos gubernamentales / mock en demo \\
+\rowcolor{fondoazul}
+Visualización de mapas & Leaflet.js & Gratuito & Open source, mapas interactivos \\
+Frontend & React.js, Tailwind CSS & Gratuito & Open source, estándar de industria \\
+\rowcolor{fondoazul}
+Backend & FastAPI (Python) & Gratuito & Open source, ideal para serverless \\
+Despliegue & IBM Cloud Functions & Tier gratuito & Serverless, requerido por el track \\
+\rowcolor{fondoazul}
+Almacenamiento & IBM Cloud Object Storage & Tier gratuito & Compatible con el ecosistema IBM \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Viabilidad de datos}
+
+Todas las fuentes de datos identificadas son de acceso público y gratuito. En la demo del hackathon, \textbf{se utilizan exclusivamente datos mock precargados}. Para producción, las fuentes están pre-integradas y son activables con un flag:
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=3pt]
+  \item DENUE del INEGI: descarga directa desde \url{https://www.inegi.org.mx/app/descarga/}
+  \item Incidencia delictiva: publicada mensualmente por el SNSP
+  \item OpenStreetMap: acceso libre vía Overpass API
+  \item Imágenes satelitales: Landsat/Sentinel vía Google Earth Engine (gratuito para uso académico)
+  \item GTFS de transporte público: publicado por organismos de transporte locales
+\end{itemize}
+
+\subsection{Presupuesto estimado del prototipo}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{X r l}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Concepto} & \color{white}\textbf{Costo} & \color{white}\textbf{Nota} \\
+\midrule
+IBM Watsonx AI (tier gratuito) & \$0 & Incluye créditos para desarrollo \\
+\rowcolor{fondoazul}
+IBM Cloud Functions (tier gratuito) & \$0 & Hasta 5M de invocaciones/mes \\
+Datos (INEGI, OSM, SNSP) + datos mock & \$0 & Acceso público / fixture local \\
+\rowcolor{fondoazul}
+Herramientas de desarrollo (Python, React, etc.) & \$0 & Open source \\
+Dominio web (opcional para demo) & \$200–\$500 MXN & Opcional \\
+\midrule
+\rowcolor{fondogris}
+\textbf{Total estimado para prototipo} & \textbf{\$0–\$500 MXN} & \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Riesgos identificados y mitigación}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{X X X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Riesgo} & \color{white}\textbf{Impacto} & \color{white}\textbf{Mitigación} \\
+\midrule
+Datos municipales de alumbrado no disponibles públicamente & No se puede evaluar iluminación existente & Dataset mock con valores representativos; imágenes nocturnas satelitales (NASA VIIRS) como proxy en producción \\
+\rowcolor{fondoazul}
+Watsonx no genera escenarios con calidad esperada & Propuestas incoherentes o poco útiles & Prompt engineering iterativo en Prompt Lab; validación de salidas con reglas de negocio; fallback a generación algorítmica pura \\
+Conectividad externa inestable durante demo & Falla en llamadas a APIs reales & Dataset mock precargado elimina este riesgo por completo en la demo \\
+\rowcolor{fondoazul}
+Tiempo insuficiente para las 4 capas completas & Prototipo incompleto en Fase 3 & Capas 1 y 2 como MVP mínimo viable; capas 3 y 4 como extensión documentada y arquitectónicamente lista \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+% ==================== 9. MÉRITO TÉCNICO ====================
+\newpage
+\section{Mérito Técnico}
+
+\subsection{Arquitectura del sistema}
+
+SUSVI se implementa como una aplicación \textit{cloud-native} con arquitectura serverless, compuesta por cuatro módulos independientes que se comunican mediante APIs REST:
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l l X}
+\toprule
+\rowcolor{azuloscuro}
+\color{white}\textbf{Módulo} & \color{white}\textbf{Tecnología} & \color{white}\textbf{Función} \\
+\midrule
+M1 — Ingesta de datos & Python, GeoPandas, Overpass API & ETL de datos urbanos desde fuentes abiertas (o mock en demo) \\
+\rowcolor{fondoazul}
+M2 — Diagnóstico & IBM Watsonx AI (Granite 13B) & Análisis multidimensional de la zona: riesgo, iluminación, verde, vigilancia \\
+M3 — Generación & Watsonx + Python (cálculos) & Escenarios de intervención optimizados con resolución de conflictos entre capas \\
+\rowcolor{fondoazul}
+M4 — Visualización & React.js, Leaflet.js, D3.js & Dashboard interactivo con planos, métricas y exportación PDF \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Aprovechamiento de las herramientas IBM}
+
+\subsubsection{Watsonx.ai — Foundation models}
+
+Se utilizará el modelo \textbf{Granite 13B} de IBM como base para los agentes, seleccionado por su capacidad de seguir instrucciones estructuradas, soporte nativo en Watsonx y rendimiento en tareas de razonamiento. Para tareas de mayor complejidad, se evaluará \textbf{Llama 3.1 70B}, también disponible en la plataforma.
+
+\subsubsection{Watsonx Agents}
+
+Se implementan dos agentes especializados:
+
+\begin{enumerate}[leftmargin=1.5cm, itemsep=4pt]
+  \item \textbf{Agente de diagnóstico:} Recibe datos geoespaciales procesados en formato GeoJSON enriquecido y produce un reporte de diagnóstico con índices cuantificados por dimensión (riesgo peatonal, déficit lumínico, déficit verde, cobertura de vigilancia).
+  
+  \item \textbf{Agente generativo:} Toma el diagnóstico, las restricciones técnicas (NOM-013-ENER, parámetros de cámaras, especies vegetales permitidas) y los resultados de los algoritmos de optimización, y genera escenarios de intervención con resolución de conflictos multicapa.
+\end{enumerate}
+
+\subsubsection{Prompt Lab}
+
+El diseño de prompts para los agentes incluye:
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=3pt]
+  \item Instrucciones de sistema que codifican las restricciones normativas (niveles de lux por tipo de vía, campos de visión por modelo de cámara, distancias mínimas entre luminarias).
+  \item Formato de salida estructurado (JSON con campos definidos) para que las respuestas sean \textit{parseables} por el backend.
+  \item Ejemplos \textit{few-shot} de diagnósticos y propuestas previamente validados.
+\end{itemize}
+
+\subsection{Cálculos técnicos integrados}
+
+El sistema no solo usa IA generativa para texto: integra cálculos de ingeniería reales:
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=4pt]
+  \item \textbf{Cálculo luminotécnico (Capa 2 — MVP):} Basado en la NOM-013-ENER-2013. Calcula niveles de iluminancia (lux), flujo luminoso (lúmenes), potencia (watts), espaciamiento entre luminarias y consumo energético anual. Fórmula principal:
+  \[
+    d = \frac{\Phi \times CU \times FM}{E_{min} \times A}
+  \]
+
+  \item \textbf{Análisis de grafos para senderos (Capa 1 — MVP):} Rutas óptimas sobre la red vial con NetworkX/OSMnx, ponderación multi-criterio: distancia, nivel de riesgo delictivo y caminabilidad.
+
+  \item \textbf{Optimización de cobertura de cámaras (Capa 4 — futuro):} Modelado geométrico del campo de visión como polígono (Shapely), verificación de línea de vista con edificios, y optimización tipo \textit{set cover} para minimizar el número de cámaras con máxima cobertura.
+
+  \item \textbf{Análisis geoespacial de áreas verdes (Capa 3 — futuro):} Cálculo de NDVI desde imágenes satelitales, identificación de espacios subutilizados y déficit verde por manzana.
+\end{itemize}
+
+\subsection{Documentación técnica prevista}
+
+\begin{itemize}[leftmargin=1.5cm, itemsep=3pt]
+  \item Diagrama UML de componentes: arquitectura modular del sistema.
+  \item Diagrama UML de secuencia: flujo desde ingesta de datos hasta generación del plano.
+  \item Diagrama UML de despliegue: infraestructura serverless en IBM Cloud.
+  \item Código fuente documentado y versionado en GitHub.
+  \item Notebook de Watsonx con los procesos de análisis y generación.
+\end{itemize}
+
+
+% ==================== 10. CONCLUSIÓN ====================
+\newpage
+\section{Conclusión}
+
+SUSVI aborda un problema real, medible y urgente en las ciudades mexicanas: la planificación fragmentada de espacios peatonales que resulta en senderos inseguros, mal iluminados, sin vegetación y con vigilancia deficiente.
+
+\begin{tcolorbox}[cajaazul, title=¿Por qué SUSVI gana?]
+\begin{itemize}[leftmargin=0.5cm, itemsep=4pt]
+  \item \textbf{MVP claro y demostrable en 48 horas:} Dos capas completamente funcionales (senderos + iluminación), sobre datos mock precargados, sin dependencias externas en demo.
+  \item \textbf{Técnicamente sólido:} IA generativa con IBM Watsonx + cálculos de ingeniería reales (NOM-013-ENER) + análisis geoespacial (GeoPandas, NetworkX, Shapely).
+  \item \textbf{Impacto social directo y cuantificable:} Plan de intervención con métricas de cobertura, consumo energético y costo por habitante — listo para que un funcionario municipal tome una decisión informada.
+  \item \textbf{Escalable a toda la nación y más allá:} Fuentes de datos abiertas y estandarizadas (INEGI, OSM, GTFS) con cobertura nacional y análogos en toda América Latina.
+  \item \textbf{Costo de desarrollo: \$0:} Open source + tiers gratuitos de IBM Cloud. Democratiza la planificación urbana de calidad para cualquier municipio del país.
+\end{itemize}
+\end{tcolorbox}
+
+La integración simultánea de las cuatro dimensiones urbanas mediante IA generativa, con resolución automática de conflictos entre capas, es un diferenciador sin precedentes en el mercado mexicano. SUSVI transforma datos crudos en planes de acción concretos, reduciendo de 6 meses a minutos el tiempo para que una autoridad municipal pueda diseñar un espacio peatonal más seguro, más verde y más inteligente.
+
+
+% ==================== REFERENCIAS ====================
+\newpage
+\section{Referencias}
+
+\begin{enumerate}[label={[\arabic*]}, leftmargin=1.5cm]
+  \item INEGI. \textit{Encuesta Nacional de Victimización y Percepción sobre Seguridad Pública (ENVIPE) 2024}. \url{https://www.inegi.org.mx/programas/envipe/}
+  \item INEGI. \textit{Directorio Estadístico Nacional de Unidades Económicas (DENUE)}. \url{https://www.inegi.org.mx/app/mapa/denue/}
+  \item Secretariado Ejecutivo del Sistema Nacional de Seguridad Pública. \textit{Incidencia delictiva}. \url{https://www.gob.mx/sesnsp}
+  \item \textit{NOM-013-ENER-2013}. Eficiencia energética para sistemas de alumbrado en vialidades. Diario Oficial de la Federación.
+  \item Organización Mundial de la Salud. \textit{Recomendaciones de áreas verdes urbanas}. \url{https://www.who.int/}
+  \item ONU Hábitat. \textit{ODS 11: Ciudades y comunidades sostenibles}. \url{https://www.un.org/sustainabledevelopment/cities/}
+  \item IBM. \textit{Watsonx AI — Documentación oficial}. \url{https://www.ibm.com/watsonx}
+  \item OpenStreetMap. \url{https://www.openstreetmap.org/}
+  \item ONU Mujeres México. \textit{Ciudades y espacios públicos seguros para mujeres y niñas}. \url{https://mexico.unwomen.org/}
+  \item DIAL GmbH. \textit{DIALux — Software de planificación de iluminación}. \url{https://www.dialux.com/}
+  \item NASA. \textit{VIIRS Nighttime Lights}. \url{https://earthdata.nasa.gov/}
+  \item IBM. \textit{Granite Foundation Models}. \url{https://www.ibm.com/granite}
+  \item Gehl Architects. \textit{Consultoría en diseño urbano y espacio público}. \url{https://gehlpeople.com/}
+\end{enumerate}
+
+\end{document}
