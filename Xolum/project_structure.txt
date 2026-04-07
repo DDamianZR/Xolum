@@ -1,0 +1,6 @@
+Doc/
+Web/
+README.md
+docs_structure.txt
+package-lock.json
+project_structure.txt
